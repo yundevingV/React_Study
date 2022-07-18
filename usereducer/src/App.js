@@ -1,8 +1,7 @@
 
-import React, { useRef,useMemo, useCallback,useReducer } from 'react';
+import React, { useMemo, useReducer } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
-import useInput from './hooks/useInput'
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는 중 ...')
@@ -43,7 +42,6 @@ function reducer(state,action){
       }
     case 'CREATE_USER' :
       return {
-        inputs : initialState.inputs,
         users : state.users.concat(action.user)
       }
     case "TOGGLE_USER" :
@@ -64,55 +62,55 @@ function reducer(state,action){
       return state
   }
 }
+export const UserDispatch = React.createContext(null);
+// 내보내주면 나중에 사용하고 싶을 때 
+// import {UserDispatch} from './App'
+// 라고 불러와서 쓰면됨 ㅎㅎ
 
 function App() {
   const [state,dispatch] = useReducer(reducer,initialState)
   const {users} = state
-  const nextId = useRef(4);
-
-  const[{username,email} , onChange, reset] = useInput({
-    username : '',
-    email : ''
-  })
 
 
 
-  const onCreate = useCallback(() => {
-    dispatch({
-      type :'CREATE_USER',
-      user : {
-        id : nextId.current,
-        username,
-        email
-      }
-    })
-    nextId.current+=1
-    reset()
-  }, [username,email])
 
-  const onToggle = useCallback((id) => {
-    dispatch({
-      type :'TOGGLE_USER',
-      id
+
+  // const onCreate = useCallback(() => {
+  //   dispatch({
+  //     type :'CREATE_USER',
+  //     user : {
+  //       id : nextId.current,
+  //       username,
+  //       email
+  //     }
+  //   })
+  //   nextId.current+=1
+  //   reset()
+  // }, [username,email])
+
+  // const onToggle = useCallback((id) => {
+  //   dispatch({
+  //     type :'TOGGLE_USER',
+  //     id
       
-    })
-  }, [])
+  //   })
+  // }, [])
 
-  const onRemove = useCallback((id) => {
-    dispatch({
-      type :'REMOVE_USER',
-      id
-    })
-  }, [])
+  // const onRemove = useCallback((id) => {
+  //   dispatch({
+  //     type :'REMOVE_USER',
+  //     id
+  //   })
+  // }, [])
 
   const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
-    <>
-    <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
-    <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+    <UserDispatch.Provider value={dispatch}>
+    <CreateUser />
+    <UserList users={users}  />
     <div> 활성 사용자 수 : {count} </div>
-    </>
+    </UserDispatch.Provider>
   );
 }
 
