@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, {useState } from 'react';
+
+import TableList from './TableList';
+import Map from './Map';
+
+const init ={
+  tables : [
+    {
+      id :1,
+      name : 'a'
+    },
+    {
+      id :2,
+      name : 'aa'
+    },
+    {
+      id :3,
+      name : 'aaa'
+    },
+    {
+      id :3,
+      name : 'aaa'
+    },
+    {
+      id :3,
+      name : 'aaa'
+    },
+    {
+      id :3,
+      name : 'aaa'
+    }
+  ]
+}
+
 
 function App() {
+  const [state,setState] = useState(init)
+
+  const {tables} = state
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <><Map />
+      <TableList tables={tables} />
+      
+    </>
   );
 }
 
