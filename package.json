@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/yundevingV/React_Study.git",
   "author": "ys0222 <ggdbstjd0222@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "immer": "^9.0.15"
+  }
 }
