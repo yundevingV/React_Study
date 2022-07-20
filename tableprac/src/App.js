@@ -8,39 +8,33 @@ const init ={
   tables : [
     {
       id :1,
-      name : 'a'
+      src : 'https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/baa0b731-c101-4dc7-837a-305067b65b5b.png',
+      alt : 'X'
+      
     },
     {
       id :2,
-      name : 'aa'
+      src : 'https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c8382791-88b5-47b2-a4b6-421f9e7cfa0c.png',
+      alt : 'X'
     },
     {
       id :3,
-      name : 'aaa'
-    },
-    {
-      id :3,
-      name : 'aaa'
-    },
-    {
-      id :3,
-      name : 'aaa'
-    },
-    {
-      id :3,
-      name : 'aaa'
-    }
+      src : 'https://d1cua0vf0mkpiy.cloudfront.net/images/menu/normal/c01fc7e0-f580-4dbe-84fd-c7ecd6e97d88.png',
+      alt : 'X'
+    },    
   ]
 }
 
 
 function App() {
-  const [state,setState] = useState(init)
-
+  const [state] = useState(init)
+  
+  
   const {tables} = state
 
   return (
-    <><Map />
+    <>
+      <Map />
       <TableList tables={tables} />
       
     </>

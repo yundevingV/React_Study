@@ -7,6 +7,7 @@
   "author": "ys0222 <ggdbstjd0222@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "immer": "^9.0.15"
+    "immer": "^9.0.15",
+    "polished": "^4.2.2"
   }
 }

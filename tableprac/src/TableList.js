@@ -9,12 +9,15 @@ function Table({table}) {
         height : heightPercentageTable,
         border: '1px solid '
     }
-
+    const imgStyle = {
+        width : 300,
+        height : 300
+    }
     
     return(
         <>
         <div style={square}>             
-            {table.name}
+            <img style={imgStyle} src={table.src} alt={table.alt}></img>
         </div> 
         
         </>

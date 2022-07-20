@@ -8,6 +8,7 @@ function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는 중 ...')
   return users.filter(user => user.active).length  
 }
+
 const initialState = {
   users : [
     {
@@ -93,10 +94,6 @@ export const UserDispatch = React.createContext(null);
 function App() {
   const [state,dispatch] = useReducer(reducer,initialState)
   const {users} = state
-
-
-
-
 
   // const onCreate = useCallback(() => {
   //   dispatch({
