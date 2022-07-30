@@ -1,10 +1,12 @@
-import Users from './Users'
 import React from 'react';
+import Users from './Users';
+import { UsersProvider } from './UserContext';
+
 function App() {
   return (
-    <>
-     <Users />
-    </>
+    <UsersProvider>
+      <Users />
+    </UsersProvider>
   );
 }
 
