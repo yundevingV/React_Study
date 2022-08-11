@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "immer": "^9.0.15",
-    "polished": "^4.2.2"
+    "polished": "^4.2.2",
+    "react-async": "^10.0.1"
   }
 }
