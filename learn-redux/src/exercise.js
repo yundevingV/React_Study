@@ -8,7 +8,9 @@ import { createStore } from "redux";
 const initialState = {
     counter : 0,
     text : '',
-    list : []
+    list : [],
+    name : '',
+    price : ''
 }
 
 //액션타입 은 주로 대문자로 작성.
@@ -18,6 +20,11 @@ const DECREASE ='DECREASE'
 const CHANGE_TEXT ='CHANGE_TEXT'
 const ADD_TO_LIST ='ADD_TO_LIST'
 
+const ADD_CART ='ADD_CART'
+
+const addCart = () =>({
+    type :ADD_TO_LIST
+})
 //액션 생성함수는 주로 camelCASE 로 작성.
 
 function increase() {
@@ -70,6 +77,14 @@ function reducer(state = initialState , action) {
             return {
                 ...state,
                 list : state.list.concat(action.item)
+            }
+        case ADD_CART :
+            return {
+                ...state,
+                name : state.name.concat(action.name),
+                price : state.price += action.price
+
+
             }
         default :
             return state

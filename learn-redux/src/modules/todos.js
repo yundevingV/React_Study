@@ -4,6 +4,7 @@ const TOGGLE_TODO = 'todos/TOGGLE_TODO'
 
 // 액션 함수 선언
 let nextID = 1 //고유 id
+
 export const addTodo = text => ({
     type : ADD_TODO,
     todo : {
